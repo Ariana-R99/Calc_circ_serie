@@ -168,5 +168,39 @@ function calcularPotencia2(){
     document.getElementById("potencia2").innerText = potencia2.toFixed(6);
 }
 
+function calcularPotenciaEq(){
+
+    //Obtener valores de los inputs
+    var voltajeT = document.getElementById("voltajeT").value;
+    var R1 = document.getElementById("R1").value;
+    var R2 = document.getElementById("R2").value;
+
+    //Verificar que los valores sean válidos
+    if(voltajeT === "" || R1 === "" || R2 === ""){
+        alert("Por favor ingresa el voltaje y los valores de las resistencias.");
+        return;
+    }
+    if (R1 <= 0 || R2 <= 0){
+        alert("Las resistencias deben ser mayores a 0 Ω");
+        return;
+    }
+
+    voltajeT = parseFloat(voltajeT);
+    R1 = parseFloat(R1);
+    R2 = parseFloat(R2);
+
+    //Sumar las resistencias
+    var RT = R1+R2;
+
+    //Calcular corriente
+    var corriente = voltajeT/RT;
+
+    //Calcular potencia en la resistencia equivalente
+    var potenciaEq = voltajeT*corriente;
+
+    //Mostrar el resultado
+    document.getElementById("potenciaEq").innerText = potenciaEq.toFixed(6);
+}
+
 
    
